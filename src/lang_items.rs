@@ -13,6 +13,7 @@ fn panic(info: &PanicInfo) -> ! {
     if let Some(message) = info.message() {
         println!("{}", message);
     }
+    println!("[KERNEL] Shutting down...");
     shutdown()
 }
 
