@@ -44,7 +44,10 @@ pub fn trap_handler(cx: &mut TrapContext) -> &mut TrapContext {
         | Trap::Exception(Exception::StorePageFault)
         | Trap::Exception(Exception::LoadFault)
         | Trap::Exception(Exception::LoadPageFault) => {
-            println!("[KERNEL] Page fault at {:#x}, bad addr = {:#x}", cx.sepc, stval);
+            println!(
+                "[KERNEL] Page fault at {:#x}, bad addr = {:#x}",
+                cx.sepc, stval
+            );
             panic!("Page fault!");
         }
         Trap::Exception(Exception::IllegalInstruction) => {
