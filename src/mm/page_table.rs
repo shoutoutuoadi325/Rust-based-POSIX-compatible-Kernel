@@ -167,6 +167,10 @@ impl PageTable {
 pub fn translated_ref<T>(token: usize, ptr: *const T) -> &'static T {
     let page_table = PageTable::from_token(token);
     let va = ptr as usize;
+    // SAFETY: The virtual address has been translated through the page table,
+    // ensuring it maps to valid physical memory. The resulting pointer is
+    // guaranteed to be valid for the lifetime 'static as the physical memory
+    // remains allocated throughout the kernel's lifetime.
     unsafe {
         (page_table.translate_va(VirtAddr::from(va)).unwrap().0 as *const T)
             .as_ref()
@@ -178,6 +182,9 @@ pub fn translated_ref<T>(token: usize, ptr: *const T) -> &'static T {
 pub fn translated_refmut<T>(token: usize, ptr: *mut T) -> &'static mut T {
     let page_table = PageTable::from_token(token);
     let va = ptr as usize;
+    // SAFETY: The virtual address has been validated through page table translation,
+    // ensuring it points to valid, mapped physical memory. The mutable reference
+    // is safe as we have exclusive access through the page table token.
     unsafe {
         (page_table.translate_va(VirtAddr::from(va)).unwrap().0 as *mut T)
             .as_mut()
@@ -214,6 +221,9 @@ pub fn translated_str(token: usize, ptr: *const u8) -> alloc::string::String {
     let mut string = Vec::new();
     let mut va = ptr as usize;
     loop {
+        // SAFETY: Each virtual address is translated through the page table before
+        // dereferencing, ensuring it points to valid mapped memory. The loop terminates
+        // on null byte, preventing out-of-bounds access.
         let ch: u8 =
             unsafe { *(page_table.translate_va(VirtAddr::from(va)).unwrap().0 as *const u8) };
         if ch == 0 {

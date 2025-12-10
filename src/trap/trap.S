@@ -6,6 +6,10 @@
     ld x\n, \n*8(sp)
 .endm
 
+    # Size of TrapContext structure in bytes
+    # TrapContext has 32 general registers + sstatus + sepc = 34 * 8 bytes
+    .set TRAP_CONTEXT_SIZE, 34*8
+
     .section .text
     .globl __alltraps
     .globl __restore
@@ -14,7 +18,7 @@ __alltraps:
     csrrw sp, sscratch, sp
     # now sp->kernel stack, sscratch->user stack
     # allocate a TrapContext on kernel stack
-    addi sp, sp, -34*8
+    addi sp, sp, -TRAP_CONTEXT_SIZE
     # save general-purpose registers
     sd x1, 1*8(sp)
     # skip sp(x2), we will save it later
@@ -55,7 +59,7 @@ __restore:
         .set n, n+1
     .endr
     # release TrapContext on kernel stack
-    addi sp, sp, 34*8
+    addi sp, sp, TRAP_CONTEXT_SIZE
     # now sp->kernel stack, sscratch->user stack
     csrrw sp, sscratch, sp
     sret
