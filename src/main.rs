@@ -12,6 +12,8 @@ mod lang_items;
 mod mm;
 mod sbi;
 mod sync;
+mod syscall;
+mod trap;
 
 use core::arch::global_asm;
 
@@ -37,6 +39,7 @@ pub fn rust_main() -> ! {
     println!("[KERNEL] Starting initialization...");
 
     mm::init();
+    trap::init();
 
     println!("[KERNEL] All initialization complete!");
     println!(
