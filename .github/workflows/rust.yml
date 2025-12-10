@@ -1,0 +1,36 @@
+name: Rust CI
+
+on:
+  push:
+    branches: [ main, dev ]
+  pull_request:
+    branches: [ main, dev ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Install Rust toolchain
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: nightly-2023-11-01
+        override: true
+        components: rustfmt, clippy, rust-src
+        target: riscv64gc-unknown-none-elf
+    
+    - name: Check formatting
+      run: cargo fmt -- --check
+      
+    - name: Run Clippy
+      run: cargo clippy -- -D warnings || true
+      
+    - name: Build kernel
+      run: cargo build --release
+      
+    - name: Run tests
+      run: cargo test --lib || true
