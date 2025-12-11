@@ -23,3 +23,7 @@ Thumbs.db
 
 # QEMU
 *.log
+
+# Backup files
+*.bak
+*.backup

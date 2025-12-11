@@ -2,7 +2,7 @@
 
 A monolithic operating system kernel built from scratch in Rust for RISC-V 64-bit architecture, designed to run simple C-based user applications with POSIX compatibility.
 
-[中文版本](README_CN.md)
+[中文版本](README_CN.md) | **[Quick Start Guide](QUICKSTART.md)** ⚡
 
 ## Features
 
@@ -13,6 +13,8 @@ A monolithic operating system kernel built from scratch in Rust for RISC-V 64-bi
 - **Process Management**: Task scheduling and context switching
 - **System Calls**: Standard POSIX syscalls (fork, exec, wait, etc.)
 - **RISC-V Architecture**: Targets RISC-V 64-bit (RV64GC)
+- **🎨 Visualization Dashboard**: Real-time kernel metrics monitoring
+- **📊 Demo Scripts**: Professional 3-level demonstration system
 
 ## Requirements
 

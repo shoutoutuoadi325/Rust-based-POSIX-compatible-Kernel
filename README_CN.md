@@ -2,7 +2,7 @@
 
 一个从零开始使用 Rust 构建的单内核操作系统，面向 RISC-V 64 位架构，旨在运行简单的基于 C 的用户应用程序，并兼容 POSIX 标准。
 
-[English Version](README.md)
+[English Version](README.md) | **[快速开始指南](QUICKSTART.md)** ⚡
 
 ## 特性
 
@@ -13,6 +13,8 @@
 - **进程管理**: 任务调度和上下文切换
 - **系统调用**: 标准 POSIX 系统调用 (fork, exec, wait 等)
 - **RISC-V 架构**: 面向 RISC-V 64 位 (RV64GC)
+- **🎨 可视化仪表盘**: 实时内核指标监控
+- **📊 演示脚本**: 专业的三级演示系统
 
 ## 系统要求
 
