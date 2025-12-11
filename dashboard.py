@@ -14,6 +14,10 @@ import time
 from collections import deque
 from datetime import datetime
 
+# Configuration constants
+LOG_TRUNCATE_LENGTH = 60  # Maximum length for log lines in display
+DASHBOARD_UPDATE_INTERVAL_MS = 500  # Update interval in milliseconds
+
 # Try to import visualization libraries, fallback to text mode
 try:
     import matplotlib
@@ -22,12 +26,12 @@ try:
     if os.environ.get('DISPLAY') or os.environ.get('WAYLAND_DISPLAY'):
         matplotlib.use('TkAgg')  # Use TkAgg backend for interactive display
     else:
-        # No display available, will use text mode
-        raise ImportError("No display available")
+        # No display available - will use text mode (expected for headless systems)
+        raise ImportError("Text mode")
     import matplotlib.pyplot as plt
     from matplotlib.animation import FuncAnimation
     GRAPHICS_AVAILABLE = True
-except (ImportError, RuntimeError) as e:
+except (ImportError, RuntimeError):
     GRAPHICS_AVAILABLE = False
     print("[WARNING] matplotlib not available or no display found. Running in text-only mode.")
     print("[INFO] Install with: pip3 install --user matplotlib")
@@ -192,8 +196,8 @@ class GraphicalDashboard:
         ax4.text(0.05, 0.95, 'Recent Kernel Logs:', fontsize=10, fontweight='bold')
         recent_logs = list(self.monitor.logs)[-8:]
         for i, log in enumerate(recent_logs):
-            # Truncate long logs
-            log_text = log[:60] + '...' if len(log) > 60 else log
+            # Truncate long logs to fit in display
+            log_text = log[:LOG_TRUNCATE_LENGTH] + '...' if len(log) > LOG_TRUNCATE_LENGTH else log
             y_pos = 0.85 - i * 0.1
             ax4.text(0.05, y_pos, log_text, fontsize=8, family='monospace')
         ax4.set_title('Console Output')
@@ -202,7 +206,12 @@ class GraphicalDashboard:
     
     def show(self):
         """Start the dashboard"""
-        ani = FuncAnimation(self.fig, self.update, interval=500, cache_frame_data=False)
+        ani = FuncAnimation(
+            self.fig, 
+            self.update, 
+            interval=DASHBOARD_UPDATE_INTERVAL_MS,
+            cache_frame_data=False
+        )
         plt.show()
 
 

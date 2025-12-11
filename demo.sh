@@ -7,6 +7,12 @@
 set -e
 
 # Configuration
+# DEMO_TIMEOUT: Time in seconds to wait for each kernel demo to complete
+# Default is 5 seconds which is sufficient for the current demos.
+# Increase this value if:
+# - Running on slower systems
+# - Using different QEMU configurations (e.g., with debugging)
+# - Adding more complex demo programs
 DEMO_TIMEOUT=5  # Timeout in seconds for kernel demo runs
 
 # Colors for output

@@ -105,7 +105,9 @@ fn demo_memory_stats() {
     
     // Output structured metrics for dashboard
     // Note: Actual kernel memory usage is complex to calculate at this stage.
-    // Using approximate value of 1 MB for demonstration purposes.
+    // This approximation represents minimal kernel overhead (code, stack, heap metadata).
+    // Update this value if significant kernel features are added (e.g., large page caches,
+    // extensive process tables, or additional heap allocations).
     const APPROX_KERNEL_USAGE_MB: usize = 1;
     println!("[METRICS] memory_total_mb={}", total_mb);
     println!("[METRICS] memory_used_mb={}", APPROX_KERNEL_USAGE_MB);
