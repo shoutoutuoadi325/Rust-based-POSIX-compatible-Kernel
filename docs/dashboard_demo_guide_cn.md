@@ -24,7 +24,11 @@
 
 首先安装 matplotlib：
 ```bash
-pip3 install matplotlib
+# 方式 1：用户安装（无需 sudo）
+pip3 install --user matplotlib
+
+# 方式 2：系统安装（需要 sudo）
+sudo pip3 install matplotlib
 ```
 
 然后运行仪表盘：

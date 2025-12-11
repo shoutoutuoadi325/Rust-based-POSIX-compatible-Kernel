@@ -24,7 +24,11 @@ The visualization dashboard provides real-time monitoring of kernel metrics, mak
 
 First, install matplotlib:
 ```bash
-pip3 install matplotlib
+# Option 1: User installation (no sudo required)
+pip3 install --user matplotlib
+
+# Option 2: System-wide installation (requires sudo)
+sudo pip3 install matplotlib
 ```
 
 Then run the dashboard:

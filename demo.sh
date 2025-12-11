@@ -6,6 +6,9 @@
 
 set -e
 
+# Configuration
+DEMO_TIMEOUT=5  # Timeout in seconds for kernel demo runs
+
 # Colors for output
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -140,7 +143,7 @@ demo_level1() {
     echo ""
     echo -e "${CYAN}━━━━━━━━━━━━━━━━━━ KERNEL OUTPUT ━━━━━━━━━━━━━━━━━━${NC}"
     
-    timeout 5 make run 2>&1 || true
+    timeout $DEMO_TIMEOUT make run 2>&1 || true
     
     echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
     print_success "Level 1 Demo Complete!"
@@ -166,7 +169,7 @@ demo_level2() {
     echo ""
     echo -e "${CYAN}━━━━━━━━━━━━━━━━━━ KERNEL OUTPUT ━━━━━━━━━━━━━━━━━━${NC}"
     
-    timeout 5 make run 2>&1 || true
+    timeout $DEMO_TIMEOUT make run 2>&1 || true
     
     echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
     print_success "Level 2 Demo Complete!"

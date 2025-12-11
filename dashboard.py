@@ -17,14 +17,20 @@ from datetime import datetime
 # Try to import visualization libraries, fallback to text mode
 try:
     import matplotlib
-    matplotlib.use('TkAgg')  # Use TkAgg backend for interactive display
+    # Check if display is available before setting backend
+    import os
+    if os.environ.get('DISPLAY') or os.environ.get('WAYLAND_DISPLAY'):
+        matplotlib.use('TkAgg')  # Use TkAgg backend for interactive display
+    else:
+        # No display available, will use text mode
+        raise ImportError("No display available")
     import matplotlib.pyplot as plt
     from matplotlib.animation import FuncAnimation
     GRAPHICS_AVAILABLE = True
-except ImportError:
+except (ImportError, RuntimeError) as e:
     GRAPHICS_AVAILABLE = False
-    print("[WARNING] matplotlib not available. Running in text-only mode.")
-    print("[INFO] Install with: pip3 install matplotlib")
+    print("[WARNING] matplotlib not available or no display found. Running in text-only mode.")
+    print("[INFO] Install with: pip3 install --user matplotlib")
 
 
 class KernelMonitor:

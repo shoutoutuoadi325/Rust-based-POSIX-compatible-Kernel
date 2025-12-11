@@ -56,7 +56,11 @@ pub fn rust_main() -> ! {
     sbi::shutdown()
 }
 
-/// Run demonstration programs
+/// Run demonstration programs showcasing kernel capabilities:
+/// - Basic I/O (Hello World)
+/// - System information reporting
+/// - Memory management statistics
+/// - Process and syscall interfaces
 fn run_demos() {
     println!("\n=== RPOS Kernel Demonstration ===\n");
 
@@ -89,7 +93,7 @@ fn demo_system_info() {
     println!("Status: SUCCESS\n");
 }
 
-/// Demo 3: Memory Statistics  
+/// Demo 3: Memory Statistics
 fn demo_memory_stats() {
     println!("[DEMO 3] Memory Management Statistics");
     let total_mem = mm::memory_size();
@@ -100,9 +104,12 @@ fn demo_memory_stats() {
     println!("Virtual Memory: SV39 Paging Enabled");
     
     // Output structured metrics for dashboard
+    // Note: Actual kernel memory usage is complex to calculate at this stage.
+    // Using approximate value of 1 MB for demonstration purposes.
+    const APPROX_KERNEL_USAGE_MB: usize = 1;
     println!("[METRICS] memory_total_mb={}", total_mb);
-    println!("[METRICS] memory_used_mb={}", 1); // Approximate kernel usage
-    println!("[METRICS] memory_free_mb={}", total_mb - 1);
+    println!("[METRICS] memory_used_mb={}", APPROX_KERNEL_USAGE_MB);
+    println!("[METRICS] memory_free_mb={}", total_mb - APPROX_KERNEL_USAGE_MB);
     println!("Status: SUCCESS\n");
 }
 
