@@ -58,6 +58,39 @@ make run
 make clean
 \`\`\`
 
+## Demonstration
+
+For OS Competition, we provide visualization tools and demo scripts:
+
+### Quick Demo
+\`\`\`bash
+# Run automated demonstration
+./demo.sh --auto
+
+# Interactive demo menu
+./demo.sh
+\`\`\`
+
+### Visualization Dashboard
+\`\`\`bash
+# Real-time kernel metrics visualization
+python3 dashboard.py
+
+# Text-only mode (no matplotlib required)
+python3 dashboard.py --text
+\`\`\`
+
+The dashboard displays:
+- Real-time memory usage charts
+- Process state tracking
+- System call statistics
+- Live kernel log monitoring
+
+For best experience, install matplotlib:
+\`\`\`bash
+pip3 install matplotlib
+\`\`\`
+
 ## Project Structure
 
 \`\`\`

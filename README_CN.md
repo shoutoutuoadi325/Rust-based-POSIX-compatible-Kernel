@@ -58,6 +58,39 @@ make run
 make clean
 \`\`\`
 
+## 演示
+
+为操作系统竞赛准备了可视化工具和演示脚本：
+
+### 快速演示
+\`\`\`bash
+# 运行自动演示
+./demo.sh --auto
+
+# 交互式演示菜单
+./demo.sh
+\`\`\`
+
+### 可视化仪表盘
+\`\`\`bash
+# 实时内核指标可视化
+python3 dashboard.py
+
+# 纯文本模式（无需 matplotlib）
+python3 dashboard.py --text
+\`\`\`
+
+仪表盘功能：
+- 实时内存使用图表
+- 进程状态跟踪
+- 系统调用统计
+- 内核日志实时监控
+
+最佳体验请安装 matplotlib：
+\`\`\`bash
+pip3 install matplotlib
+\`\`\`
+
 ## 项目结构
 
 \`\`\`
