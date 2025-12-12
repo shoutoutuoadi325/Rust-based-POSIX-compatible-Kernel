@@ -2,7 +2,7 @@
 
 A monolithic operating system kernel built from scratch in Rust for RISC-V 64-bit architecture, designed to run simple C-based user applications with POSIX compatibility.
 
-[中文版本](README_CN.md)
+[中文版本](README_CN.md) | **[Quick Start Guide](QUICKSTART.md)** ⚡
 
 ## Features
 
@@ -13,6 +13,7 @@ A monolithic operating system kernel built from scratch in Rust for RISC-V 64-bi
 - **Process Management**: Task scheduling and context switching
 - **System Calls**: Standard POSIX syscalls (fork, exec, wait, etc.)
 - **RISC-V Architecture**: Targets RISC-V 64-bit (RV64GC)
+- **🎨 Visualization Dashboard**: Real-time kernel metrics monitoring
 
 ## Requirements
 
@@ -57,6 +58,40 @@ make run
 # Clean build artifacts
 make clean
 \`\`\`
+
+## Demonstration
+
+For OS Competition, we provide a visualization dashboard:
+
+### Visualization Dashboard
+
+**Setup (Recommended):**
+\`\`\`bash
+# Setup Python virtual environment with dependencies
+./setup_venv.sh
+
+# Then run the dashboard
+source venv/bin/activate
+python dashboard.py
+\`\`\`
+
+**Alternative (System-wide installation):**
+\`\`\`bash
+# Install matplotlib globally
+pip3 install --user matplotlib
+
+# Run dashboard
+python3 dashboard.py
+
+# Text-only mode (no matplotlib required)
+python3 dashboard.py --text
+\`\`\`
+
+The dashboard displays:
+- Real-time memory usage charts
+- Process state tracking
+- System call statistics
+- Live kernel log monitoring
 
 ## Project Structure
 
@@ -105,7 +140,8 @@ The kernel follows a monolithic architecture with these key components:
 
 ## License
 
-This project is educational and open-source.
+- Source code: GNU GPL-3.0-or-later. See [LICENSE](LICENSE).
+- Documentation: CC BY-SA 4.0. See [LICENSE-DOCS](LICENSE-DOCS).
 
 ## Contributors
 

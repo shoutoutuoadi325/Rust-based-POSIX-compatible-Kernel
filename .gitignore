@@ -23,3 +23,14 @@ Thumbs.db
 
 # QEMU
 *.log
+
+# Backup files
+*.bak
+*.backup
+
+# Python virtual environment
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
