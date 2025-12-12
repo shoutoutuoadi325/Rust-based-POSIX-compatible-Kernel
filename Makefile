@@ -27,7 +27,7 @@ run: build
 		-machine virt \
 		-nographic \
 		-bios default \
-		-device loader,file=$(KERNEL_ELF),addr=0x80200000
+		-kernel $(KERNEL_ELF)
 
 clean:
 	@cargo clean

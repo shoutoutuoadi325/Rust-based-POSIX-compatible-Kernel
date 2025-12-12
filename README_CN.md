@@ -2,7 +2,7 @@
 
 一个从零开始使用 Rust 构建的单内核操作系统，面向 RISC-V 64 位架构，旨在运行简单的基于 C 的用户应用程序，并兼容 POSIX 标准。
 
-[English Version](README.md)
+[English Version](README.md) | **[快速开始指南](QUICKSTART.md)** ⚡
 
 ## 特性
 
@@ -13,6 +13,7 @@
 - **进程管理**: 任务调度和上下文切换
 - **系统调用**: 标准 POSIX 系统调用 (fork, exec, wait 等)
 - **RISC-V 架构**: 面向 RISC-V 64 位 (RV64GC)
+- **🎨 可视化仪表盘**: 实时内核指标监控
 
 ## 系统要求
 
@@ -57,6 +58,40 @@ make run
 # 清理构建产物
 make clean
 \`\`\`
+
+## 演示
+
+为操作系统竞赛准备了可视化仪表盘：
+
+### 可视化仪表盘
+
+**设置（推荐）：**
+\`\`\`bash
+# 设置 Python 虚拟环境及依赖
+./setup_venv.sh
+
+# 然后运行仪表盘
+source venv/bin/activate
+python dashboard.py
+\`\`\`
+
+**备选方案（全局安装）：**
+\`\`\`bash
+# 全局安装 matplotlib
+pip3 install --user matplotlib
+
+# 运行仪表盘
+python3 dashboard.py
+
+# 纯文本模式（无需 matplotlib）
+python3 dashboard.py --text
+\`\`\`
+
+仪表盘功能：
+- 实时内存使用图表
+- 进程状态跟踪
+- 系统调用统计
+- 内核日志实时监控
 
 ## 项目结构
 
@@ -105,7 +140,8 @@ make clean
 
 ## 许可证
 
-本项目为教育项目，开源发布。
+- 源代码：遵循 GNU GPL-3.0-or-later，详见 [LICENSE](LICENSE)。
+- 文档：遵循 CC BY-SA 4.0，详见 [LICENSE-DOCS](LICENSE-DOCS)。
 
 ## 贡献者
 
