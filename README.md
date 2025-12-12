@@ -143,9 +143,6 @@ The kernel follows a monolithic architecture with these key components:
 - Source code: GNU GPL-3.0-or-later. See [LICENSE](LICENSE).
 - Documentation: CC BY-SA 4.0. See [LICENSE-DOCS](LICENSE-DOCS).
 
-## Contributors
-
-RPOS Team
 
 ## Acknowledgments
 

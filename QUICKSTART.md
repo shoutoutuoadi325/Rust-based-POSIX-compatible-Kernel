@@ -130,12 +130,4 @@ This implementation addresses:
 - ✅ **Engineering Standards (10%)**: Clean code, proper structure
 - ✅ **Presentation (20%)**: Professional demo scripts and visualization
 
-## Contact
 
-For issues or questions, see the main README.md or check the documentation.
-
----
-
-**Time to impressive demo: < 5 minutes**
-
-Good luck with the competition! 🎉

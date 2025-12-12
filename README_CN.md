@@ -143,9 +143,6 @@ python3 dashboard.py --text
 - 源代码：遵循 GNU GPL-3.0-or-later，详见 [LICENSE](LICENSE)。
 - 文档：遵循 CC BY-SA 4.0，详见 [LICENSE-DOCS](LICENSE-DOCS)。
 
-## 贡献者
-
-RPOS 团队
 
 ## 致谢
 
