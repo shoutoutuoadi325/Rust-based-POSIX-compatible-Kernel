@@ -49,6 +49,26 @@ sudo pip3 install matplotlib
 python3 dashboard.py
 ```
 
+**Note: Installing tkinter (Required for Graphical Mode)**
+
+The graphical dashboard requires `tkinter`, which is a system package and cannot be installed via pip. Install it using your system's package manager:
+
+```bash
+# Ubuntu/Debian
+sudo apt-get install python3-tk
+
+# Fedora
+sudo dnf install python3-tkinter
+
+# Arch Linux
+sudo pacman -S tk
+
+# macOS (via Homebrew)
+brew install python-tk
+```
+
+If tkinter is not installed, the dashboard will automatically fall back to text-only mode.
+
 This will:
 1. Start the RPOS kernel in QEMU
 2. Open a graphical window with 4 panels:

@@ -49,6 +49,26 @@ sudo pip3 install matplotlib
 python3 dashboard.py
 ```
 
+**注意：安装 tkinter（图形模式必需）**
+
+图形化仪表盘需要 `tkinter`，这是一个系统包，无法通过 pip 安装。请使用系统包管理器安装：
+
+```bash
+# Ubuntu/Debian
+sudo apt-get install python3-tk
+
+# Fedora
+sudo dnf install python3-tkinter
+
+# Arch Linux
+sudo pacman -S tk
+
+# macOS（通过 Homebrew）
+brew install python-tk
+```
+
+如果未安装 tkinter，仪表盘将自动切换到纯文本模式。
+
 这将：
 1. 在 QEMU 中启动 RPOS 内核
 2. 打开一个包含 4 个面板的图形窗口：

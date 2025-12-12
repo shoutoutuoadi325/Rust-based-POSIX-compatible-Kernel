@@ -23,18 +23,40 @@ try:
     import matplotlib
     # Check if display is available before setting backend
     import os
+    INTERACTIVE_BACKEND = False
     if os.environ.get('DISPLAY') or os.environ.get('WAYLAND_DISPLAY'):
-        matplotlib.use('TkAgg')  # Use TkAgg backend for interactive display
+        # Try TkAgg first, fall back to other backends if tkinter not available
+        try:
+            import tkinter
+            matplotlib.use('TkAgg')  # Use TkAgg backend for interactive display
+            INTERACTIVE_BACKEND = True
+        except ImportError:
+            # tkinter not available, try Qt5 or GTK backends
+            try:
+                matplotlib.use('Qt5Agg')
+                INTERACTIVE_BACKEND = True
+            except Exception:
+                try:
+                    matplotlib.use('GTK3Agg')
+                    INTERACTIVE_BACKEND = True
+                except Exception:
+                    # Fall back to Agg (non-interactive, saves to file)
+                    matplotlib.use('Agg')
+                    print("[INFO] No GUI backend available (tkinter not installed).")
+                    print("[INFO] Install with: sudo apt-get install python3-tk")
+                    print("[INFO] Falling back to text mode with image export.\n")
     else:
         # No display available - will use text mode (expected for headless systems)
         raise ImportError("Text mode")
     import matplotlib.pyplot as plt
     from matplotlib.animation import FuncAnimation
-    GRAPHICS_AVAILABLE = True
+    GRAPHICS_AVAILABLE = INTERACTIVE_BACKEND
 except (ImportError, RuntimeError):
     GRAPHICS_AVAILABLE = False
+    INTERACTIVE_BACKEND = False
     print("[WARNING] matplotlib not available or no display found. Running in text-only mode.")
     print("[INFO] Install with: pip3 install --user matplotlib")
+    print("[INFO] For graphical mode, also install tkinter: sudo apt-get install python3-tk")
 
 
 class KernelMonitor:
