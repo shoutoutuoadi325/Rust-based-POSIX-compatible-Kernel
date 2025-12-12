@@ -17,9 +17,14 @@ sudo apt-get install -y qemu-system-misc
 # Add RISC-V target
 rustup target add riscv64gc-unknown-none-elf
 
-# Optional: For graphical dashboard
-pip3 install matplotlib
+# Setup Python virtual environment (recommended)
+./setup_venv.sh
+
+# OR install matplotlib globally (alternative)
+# pip3 install --user matplotlib
 ```
+
+**Note**: Using the virtual environment (venv) is recommended to avoid conflicts with system Python packages.
 
 ## Quick Demo (1 minute)
 

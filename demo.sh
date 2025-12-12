@@ -15,6 +15,9 @@ set -e
 # - Adding more complex demo programs
 DEMO_TIMEOUT=5  # Timeout in seconds for kernel demo runs
 
+# AUTO_MODE: Set to true when running in automatic mode (--auto flag)
+AUTO_MODE=false
+
 # Colors for output
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -155,7 +158,9 @@ demo_level1() {
     print_success "Level 1 Demo Complete!"
     echo ""
     
-    read -p "Press Enter to continue to Level 2..."
+    if [ "$AUTO_MODE" = false ]; then
+        read -p "Press Enter to continue to Level 2..."
+    fi
 }
 
 # Demo Level 2: System Information and Metrics
@@ -181,7 +186,9 @@ demo_level2() {
     print_success "Level 2 Demo Complete!"
     echo ""
     
-    read -p "Press Enter to continue to Level 3..."
+    if [ "$AUTO_MODE" = false ]; then
+        read -p "Press Enter to continue to Level 3..."
+    fi
 }
 
 # Demo Level 3: Visualization Dashboard
@@ -195,20 +202,28 @@ demo_level3() {
     echo "  • Educational dashboard for teaching"
     echo ""
     
+    # Setup Python command - use venv if available
+    PYTHON_CMD="python3"
+    if [ -f "venv/bin/activate" ]; then
+        print_info "Using Python virtual environment"
+        source venv/bin/activate
+        PYTHON_CMD="python"
+    fi
+    
     # Check if matplotlib is available
-    if python3 -c "import matplotlib" 2>/dev/null; then
+    if $PYTHON_CMD -c "import matplotlib" 2>/dev/null; then
         print_step "Starting graphical dashboard..."
         print_info "A new window will open with live charts"
         print_info "The kernel will run and metrics will update in real-time"
         echo ""
         
-        python3 dashboard.py || true
+        $PYTHON_CMD dashboard.py || true
     else
         print_step "Starting text-mode dashboard..."
-        print_info "For graphical mode, install: pip3 install matplotlib"
+        print_info "For graphical mode, run: ./setup_venv.sh"
         echo ""
         
-        python3 dashboard.py --text || true
+        $PYTHON_CMD dashboard.py --text || true
     fi
     
     print_success "Level 3 Demo Complete!"
@@ -300,6 +315,7 @@ main() {
     # Parse command line arguments
     if [ "$1" = "--auto" ]; then
         # Run all demos automatically
+        AUTO_MODE=true
         check_prerequisites
         build_kernel
         demo_level1

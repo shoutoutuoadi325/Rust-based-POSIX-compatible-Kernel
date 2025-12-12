@@ -74,8 +74,23 @@ make clean
 \`\`\`
 
 ### 可视化仪表盘
+
+**设置（推荐）：**
 \`\`\`bash
-# 实时内核指标可视化
+# 设置 Python 虚拟环境及依赖
+./setup_venv.sh
+
+# 然后运行仪表盘
+source venv/bin/activate
+python dashboard.py
+\`\`\`
+
+**备选方案（全局安装）：**
+\`\`\`bash
+# 全局安装 matplotlib
+pip3 install --user matplotlib
+
+# 运行仪表盘
 python3 dashboard.py
 
 # 纯文本模式（无需 matplotlib）
@@ -87,11 +102,6 @@ python3 dashboard.py --text
 - 进程状态跟踪
 - 系统调用统计
 - 内核日志实时监控
-
-最佳体验请安装 matplotlib：
-\`\`\`bash
-pip3 install matplotlib
-\`\`\`
 
 ## 项目结构
 

@@ -22,17 +22,30 @@
 
 #### 图形化模式（推荐）
 
-首先安装 matplotlib：
+**方法 1：使用虚拟环境（推荐）**
+```bash
+# 设置虚拟环境（一次性设置）
+./setup_venv.sh
+
+# 激活虚拟环境
+source venv/bin/activate
+
+# 运行仪表盘
+python dashboard.py
+
+# 完成后，停用虚拟环境
+deactivate
+```
+
+**方法 2：全局安装**
 ```bash
 # 方式 1：用户安装（无需 sudo）
 pip3 install --user matplotlib
 
 # 方式 2：系统安装（需要 sudo）
 sudo pip3 install matplotlib
-```
 
-然后运行仪表盘：
-```bash
+# 然后运行仪表盘
 python3 dashboard.py
 ```
 

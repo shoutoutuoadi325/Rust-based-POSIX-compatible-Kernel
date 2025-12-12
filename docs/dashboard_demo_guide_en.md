@@ -22,17 +22,30 @@ The visualization dashboard provides real-time monitoring of kernel metrics, mak
 
 #### Graphical Mode (Recommended)
 
-First, install matplotlib:
+**Method 1: Using Virtual Environment (Recommended)**
+```bash
+# Setup virtual environment (one-time setup)
+./setup_venv.sh
+
+# Activate virtual environment
+source venv/bin/activate
+
+# Run the dashboard
+python dashboard.py
+
+# When done, deactivate
+deactivate
+```
+
+**Method 2: Global Installation**
 ```bash
 # Option 1: User installation (no sudo required)
 pip3 install --user matplotlib
 
 # Option 2: System-wide installation (requires sudo)
 sudo pip3 install matplotlib
-```
 
-Then run the dashboard:
-```bash
+# Then run the dashboard
 python3 dashboard.py
 ```
 

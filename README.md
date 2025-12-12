@@ -74,8 +74,23 @@ For OS Competition, we provide visualization tools and demo scripts:
 \`\`\`
 
 ### Visualization Dashboard
+
+**Setup (Recommended):**
 \`\`\`bash
-# Real-time kernel metrics visualization
+# Setup Python virtual environment with dependencies
+./setup_venv.sh
+
+# Then run the dashboard
+source venv/bin/activate
+python dashboard.py
+\`\`\`
+
+**Alternative (System-wide installation):**
+\`\`\`bash
+# Install matplotlib globally
+pip3 install --user matplotlib
+
+# Run dashboard
 python3 dashboard.py
 
 # Text-only mode (no matplotlib required)
@@ -87,11 +102,6 @@ The dashboard displays:
 - Process state tracking
 - System call statistics
 - Live kernel log monitoring
-
-For best experience, install matplotlib:
-\`\`\`bash
-pip3 install matplotlib
-\`\`\`
 
 ## Project Structure
 
