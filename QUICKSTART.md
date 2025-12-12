@@ -28,38 +28,28 @@ rustup target add riscv64gc-unknown-none-elf
 
 ## Quick Demo (1 minute)
 
-### Option 1: Automated Demo
-```bash
-./demo.sh --auto
-```
-This will run all three demo levels automatically.
-
-### Option 2: Interactive Menu
-```bash
-./demo.sh
-```
-Choose which demo level to run from the menu.
-
-### Option 3: Just Run the Kernel
+### Option 1: Run the Kernel
 ```bash
 make run
 ```
 
+### Option 2: Visualization Dashboard
+```bash
+source venv/bin/activate
+python dashboard.py
+```
+
 ## What You'll See
 
-### Level 1: Basic Boot
+### Kernel Boot
 - OpenSBI firmware initialization
 - Kernel boot messages
 - Hello World output
-- **Duration**: ~3 seconds
-
-### Level 2: System Information
 - Memory management initialization
 - System statistics
-- Structured metrics output
 - **Duration**: ~3 seconds
 
-### Level 3: Visualization Dashboard
+### Visualization Dashboard
 - Real-time metrics monitoring
 - Memory usage charts
 - Process tracking
@@ -89,22 +79,20 @@ make run
 1. **Before the Demo**:
    ```bash
    # Test everything works
-   ./demo.sh --auto
+   make run
    
    # Have backup video ready
    # Practice your narration
    ```
 
 2. **During the Demo**:
-   - Start with `./demo.sh`
-   - Select "Run All Demos"
-   - Explain each level as it runs
-   - Show the visualization dashboard last (most impressive)
+   - Run `make run` to show kernel boot
+   - Run the visualization dashboard
+   - Explain the metrics as they update
 
 3. **If Something Goes Wrong**:
-   - The demo script has error handling
-   - Each level can run independently
    - Have pre-recorded video as backup
+   - Each component can run independently
 
 ## Customization
 
@@ -116,16 +104,6 @@ println!("[METRICS] your_metric=value");
 ```
 
 The dashboard will automatically display it.
-
-### Extend Demo Levels
-
-In `demo.sh`, add new demo functions following the pattern:
-```bash
-demo_level4() {
-    print_section "DEMO LEVEL 4: Your Feature"
-    # Your code here
-}
-```
 
 ## Troubleshooting
 

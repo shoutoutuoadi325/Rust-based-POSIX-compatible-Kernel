@@ -100,80 +100,6 @@ The dashboard parses special `[METRICS]` tags from kernel output:
 - `process_count`: Number of active processes
 - `syscall_count`: Number of implemented system calls
 
-## Demonstration Script
-
-### Purpose
-
-The demonstration script (`demo.sh`) provides a structured way to showcase the kernel's capabilities at multiple levels, corresponding to the competition requirements.
-
-### Usage
-
-#### Interactive Mode
-
-Run without arguments for an interactive menu:
-```bash
-./demo.sh
-```
-
-You'll see options for:
-1. Run all demos (Levels 1-3)
-2. Demo Level 1: Basic Boot + Hello World
-3. Demo Level 2: System Information & Memory
-4. Demo Level 3: Visualization Dashboard
-5. Just Build Kernel
-6. Exit
-
-#### Automatic Mode
-
-Run all demos automatically:
-```bash
-./demo.sh --auto
-```
-
-### Demo Levels
-
-#### Level 1: Basic Boot + Hello World
-
-**What it demonstrates:**
-- Successful kernel boot with OpenSBI firmware
-- SBI console output functioning correctly
-- Basic initialization (BSS clearing, stack setup)
-- Hello World program execution
-
-**Key outputs:**
-- OpenSBI boot messages
-- Kernel version and initialization messages
-- Hello World output
-
-#### Level 2: System Information & Memory Management
-
-**What it demonstrates:**
-- Memory management initialization with Buddy Allocator
-- Physical frame allocation system
-- SV39 virtual memory paging
-- System information reporting
-- Structured metrics output for monitoring
-
-**Key outputs:**
-- Memory size detection
-- Allocator initialization
-- Memory statistics with [METRICS] tags
-- System call listing
-
-#### Level 3: Real-time Visualization Dashboard
-
-**What it demonstrates:**
-- Educational value through visualization
-- Real-time kernel metrics monitoring
-- Interactive educational tools
-- Professional presentation quality
-
-**Key features:**
-- Live updating charts
-- Memory usage visualization
-- Process state tracking
-- Educational dashboard interface
-
 ## For Competition Judges
 
 ### Educational Value (教学价值)
@@ -199,9 +125,8 @@ This guide, combined with the inline code comments and bilingual documentation, 
 The tools enhance presentation in multiple ways:
 
 1. **Professional Appearance**: Polished visualizations and formatted output
-2. **Clear Demonstrations**: Structured levels from basic to advanced
+2. **Clear Demonstrations**: Clear kernel output and metrics
 3. **Live Capabilities**: Real-time monitoring impresses judges
-4. **Automation**: Reproducible demos reduce presentation risk
 
 ## Implementation Notes
 
@@ -221,21 +146,6 @@ dashboard.py
     └── Multi-panel layout
 ```
 
-### Demo Script Flow
-
-```
-demo.sh
-├── Prerequisites Check
-│   ├── Rust toolchain
-│   ├── QEMU installation
-│   └── RISC-V target
-├── Kernel Build
-├── Level 1 Demo (Basic)
-├── Level 2 Demo (Intermediate)
-├── Level 3 Demo (Advanced)
-└── Summary Report
-```
-
 ## Troubleshooting
 
 ### Dashboard Issues
@@ -249,7 +159,7 @@ demo.sh
 **Problem**: No metrics shown
 **Solution**: Ensure kernel is outputting `[METRICS]` tags. Check that kernel built successfully.
 
-### Demo Script Issues
+### Build Issues
 
 **Problem**: "QEMU not found"
 **Solution**: Install QEMU with `sudo apt-get install qemu-system-misc`
@@ -271,26 +181,15 @@ println!("[METRICS] your_metric_name=value");
 
 Then update `dashboard.py` to parse and display these metrics.
 
-### Extending Demos
-
-To add more demo levels, edit `demo.sh` and add functions following the pattern:
-```bash
-demo_levelN() {
-    print_section "DEMO LEVEL N: Description"
-    # Your demo code here
-}
-```
-
 ## Best Practices
 
 1. **Run Dashboard First**: Start the dashboard before judging to show professionalism
 2. **Prepare Backup**: Record dashboard video in case of technical issues
-3. **Practice Transitions**: Smooth flow between demo levels impresses judges
-4. **Explain Visuals**: Point out specific metrics and what they mean
-5. **Show Source Code**: Be ready to show implementation if asked
+3. **Explain Visuals**: Point out specific metrics and what they mean
+4. **Show Source Code**: Be ready to show implementation if asked
 
 ## Conclusion
 
-These tools transform a simple kernel into an impressive demonstration platform. By combining functionality with visualization and structured presentation, they maximize scores in documentation, education, and presentation categories.
+The visualization dashboard transforms a simple kernel into an impressive demonstration platform. By combining functionality with visualization, it maximizes scores in documentation, education, and presentation categories.
 
 For questions or issues, refer to the main README.md or contact the development team.

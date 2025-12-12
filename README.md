@@ -14,7 +14,6 @@ A monolithic operating system kernel built from scratch in Rust for RISC-V 64-bi
 - **System Calls**: Standard POSIX syscalls (fork, exec, wait, etc.)
 - **RISC-V Architecture**: Targets RISC-V 64-bit (RV64GC)
 - **🎨 Visualization Dashboard**: Real-time kernel metrics monitoring
-- **📊 Demo Scripts**: Professional 3-level demonstration system
 
 ## Requirements
 
@@ -62,16 +61,7 @@ make clean
 
 ## Demonstration
 
-For OS Competition, we provide visualization tools and demo scripts:
-
-### Quick Demo
-\`\`\`bash
-# Run automated demonstration
-./demo.sh --auto
-
-# Interactive demo menu
-./demo.sh
-\`\`\`
+For OS Competition, we provide a visualization dashboard:
 
 ### Visualization Dashboard
 

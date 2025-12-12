@@ -48,7 +48,7 @@ Recent Kernel Logs:
 
 ## Kernel Demo Output
 
-When running `make run` or `./demo.sh`, you will see:
+When running `make run`, you will see:
 
 ```
 OpenSBI v1.3
@@ -111,53 +111,6 @@ Status: SUCCESS
 [KERNEL] Shutting down...
 ```
 
-## Demo Script Interactive Menu
-
-When running `./demo.sh`, you will see:
-
-```
-╔════════════════════════════════════════════════════════════════╗
-║                                                                ║
-║         RPOS Kernel Demonstration Script                      ║
-║         Rust-based POSIX-compatible Kernel                    ║
-║                                                                ║
-║         For Operating System Competition                      ║
-║                                                                ║
-╚════════════════════════════════════════════════════════════════╝
-
-═══════════════════════════════════════════════════════════
-  Prerequisites Check
-═══════════════════════════════════════════════════════════
-
-[STEP] Checking for Rust toolchain...
-[SUCCESS] Rust toolchain found: cargo 1.75.0-nightly
-[STEP] Checking for QEMU RISC-V emulator...
-[SUCCESS] QEMU found: QEMU emulator version 8.2.2
-[STEP] Checking for RISC-V target...
-[SUCCESS] RISC-V target installed
-
-═══════════════════════════════════════════════════════════
-  Building RPOS Kernel
-═══════════════════════════════════════════════════════════
-
-[STEP] Compiling kernel with Rust...
-[INFO] This may take a moment on first build...
-[SUCCESS] Kernel built successfully!
-
-═══════════════════════════════════════════════════════════
-  RPOS Demo Menu
-═══════════════════════════════════════════════════════════
-
-  1) Run All Demos (Levels 1-3)
-  2) Demo Level 1: Basic Boot + Hello World
-  3) Demo Level 2: System Information & Memory
-  4) Demo Level 3: Visualization Dashboard
-  5) Just Build Kernel
-  6) Exit
-
-Select option [1-6]:
-```
-
 ## Graphical Dashboard (with matplotlib)
 
 When running `python3 dashboard.py` with matplotlib installed, a GUI window opens with 4 panels:
@@ -194,8 +147,7 @@ All panels update in real-time every 500ms as the kernel runs.
 
 1. **Text Mode**: Works on all systems, no dependencies
 2. **Graphical Mode**: More impressive, requires matplotlib
-3. **Demo Script**: Professional presentation with color output
-4. **Metrics**: All tagged with `[METRICS]` for easy parsing
+3. **Metrics**: All tagged with `[METRICS]` for easy parsing
 
 ## Recording Tips
 
@@ -206,7 +158,7 @@ For backup video recording:
 asciinema rec demo.cast
 
 # Or use script command
-script -c "./demo.sh --auto" demo.log
+script -c "make run" demo.log
 
 # Or use standard screen recording tools
 ```
@@ -218,5 +170,4 @@ Key points to highlight:
 - ✅ Educational visualization tools
 - ✅ Professional presentation
 - ✅ Bilingual documentation
-- ✅ Multiple demo levels
 - ✅ Easy to reproduce
