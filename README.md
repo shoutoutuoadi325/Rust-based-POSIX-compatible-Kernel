@@ -140,7 +140,8 @@ The kernel follows a monolithic architecture with these key components:
 
 ## License
 
-This project is educational and open-source.
+- Source code: GNU GPL-3.0-or-later. See [LICENSE](LICENSE).
+- Documentation: CC BY-SA 4.0. See [LICENSE-DOCS](LICENSE-DOCS).
 
 ## Contributors
 

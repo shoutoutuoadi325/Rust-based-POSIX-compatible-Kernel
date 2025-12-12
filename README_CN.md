@@ -140,7 +140,8 @@ python3 dashboard.py --text
 
 ## 许可证
 
-本项目为教育项目，开源发布。
+- 源代码：遵循 GNU GPL-3.0-or-later，详见 [LICENSE](LICENSE)。
+- 文档：遵循 CC BY-SA 4.0，详见 [LICENSE-DOCS](LICENSE-DOCS)。
 
 ## 贡献者
 
