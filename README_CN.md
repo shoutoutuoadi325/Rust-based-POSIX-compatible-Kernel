@@ -147,3 +147,8 @@ python3 dashboard.py --text
 ## 致谢
 
 本项目为操作系统竞赛而构建，遵循 POSIX 标准和 Rust 最佳实践。
+
+## 讲解视频链接
+
+通过网盘分享的文件：操作系统竞赛讲解.mp4
+链接: https://pan.baidu.com/s/10uo1LRNRCtAUmW7szgje9Q?pwd=kxse 提取码: kxse

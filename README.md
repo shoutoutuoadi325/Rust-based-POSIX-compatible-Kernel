@@ -147,3 +147,8 @@ The kernel follows a monolithic architecture with these key components:
 ## Acknowledgments
 
 Built for the Operating System Competition, following POSIX standards and Rust best practices.
+
+## Link to the explanation video
+
+通过网盘分享的文件：操作系统竞赛讲解.mp4
+链接: https://pan.baidu.com/s/10uo1LRNRCtAUmW7szgje9Q?pwd=kxse 提取码: kxse
